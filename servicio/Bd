@@ -1,0 +1,19 @@
+create table cliente(
+id_cli varchar(10) primary KEY,
+nombre varchar(30) not null
+);
+
+create table cuenta(
+id_cue varchar(3) primary KEY,
+id_cli varchar(10) not null,
+saldo decimal not null,
+foreign KEY(id_cli) references cliente(id_cli)    
+);
+
+create table transacciones(
+id_tran int primary key AUTO_INCREMENT,
+tipo varchar(25) not null,
+monto double not null,
+id_cue varchar(3) not null,
+ foreign key(id_cue) references cuenta(id_cue)
+);
